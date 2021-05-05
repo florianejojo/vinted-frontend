@@ -8,13 +8,11 @@ function App() {
         <Router>
             <div>
                 <Switch>
-                    <Route path="/offer">
-                        <Offer>
-                            <Link to="/">Home Link</Link>
-                        </Offer>
+                    <Route path="/offer/:id">
+                        <Offer />
                     </Route>
                     <Route path="/">
-                        <Home></Home>
+                        <Home />
                     </Route>
                 </Switch>
             </div>
