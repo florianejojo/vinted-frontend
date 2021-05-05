@@ -52,3 +52,32 @@
 #offers img {
     width: 200px;
 }
+
+/*  OFFER PAGE */
+
+#offer {
+    display: flex;
+    flex-direction: row;
+}
+
+#offer img {
+    background-color: burlywood;
+    width: calc(50% - 100px);
+    /* height: 400px; */
+
+    margin: 0 50px;
+    /* object-fit; */
+}
+
+#offer .right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 100px;
+}
+
+#itemDescription {
+    border-bottom: lightgray solid 1px;
+    /* background-color: red; */
+    /* padding: 30px; */
+}

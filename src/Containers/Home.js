@@ -37,26 +37,27 @@ const Home = () => {
 
             <div id="offers" className="container">
                 {data.map((elem, index) => {
-                    console.log(elem);
+                    console.log(elem._id);
                     return (
-                        <div key={index}>
+                        // <div >
+                        <Link to={`/offer/:${elem._id}`} key={index}>
                             <div>
                                 <span>
                                     Vendeur : {elem.owner.account.username}
                                 </span>
                                 <span></span>
                             </div>
-
                             <img
                                 src={elem.product_image.secure_url}
                                 alt="Item_image"
                             />
                             <div>{elem.product_name}</div>
-                        </div>
+                        </Link>
+                        // </div>
                     );
                 })}
             </div>
-            <Link to="/offer"> Go to Offer</Link>
+            {/* <Link to="/offer"> Go to Offer</Link> */}
         </div>
     );
 };
