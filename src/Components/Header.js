@@ -1,3 +1,5 @@
+// import { Link } from "react-router-dom";
+// import Signup from "../Containers/Signup";
 const Header = () => {
     return (
         <div className="header container">
@@ -7,7 +9,7 @@ const Header = () => {
                 alt="logo_vinted"
             />
             <input type="text" placeholder="Recherche des articles" />
-            <button>S'inscrire</button>
+
             <button>Se connecter</button>
             <button>Vends tes articles</button>
         </div>

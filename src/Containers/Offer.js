@@ -1,5 +1,4 @@
 import { Link, useParams } from "react-router-dom";
-import Header from "../Components/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -23,7 +22,6 @@ const Offer = () => {
         "Is Loading"
     ) : (
         <div>
-            <Header />
             <div id="offer" className="container">
                 <img
                     src={offer.product_image.secure_url}
@@ -53,7 +51,8 @@ const Offer = () => {
                     <button>Acheter</button>
                 </div>
             </div>
-            <Link to="/"> Go to Home</Link>;
+            <Link to="/"> Go to Home</Link>
+            <Link to="/Signup">S'inscrire</Link>
         </div>
     );
 };

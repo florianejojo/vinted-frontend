@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Header from "../Components/Header";
+
 import axios from "axios";
 import backgroundImg from "../vinted_background.jpeg";
 import blankAvatar from "../assets/blank_avatar.svg";
@@ -26,7 +26,6 @@ const Home = () => {
         "is Loading"
     ) : (
         <div>
-            <Header />
             <div id="preSection" className="container">
                 <img src={backgroundImg} alt="backgroundImg" />
 
