@@ -2,12 +2,9 @@ import { Link, useParams } from "react-router-dom";
 import Header from "../Components/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
-//
 
 const Offer = () => {
-    // const id = "60928fd0463b6e00159c293b";
     const { id } = useParams();
-
     const [offer, setOffer] = useState();
     const [isLoading, setIsLoading] = useState(true);
 
@@ -34,21 +31,25 @@ const Offer = () => {
                 />
                 <div className="right-side">
                     <div>
-                        <div>{offer.product_price}</div>
                         <div id="itemDescription">
-                            <p>MARQUE : {offer.product_details[0].MARQUE}</p>
-                            <p>TAILLE : {offer.product_details[1].TAILLE}</p>
-                            <p>ETAT : {offer.product_details[2].ETAT}</p>
-                            <p>COULEUR : {offer.product_details[3].COULEUR}</p>
-                            <p>
-                                EMPLACEMENT :
-                                {offer.product_details[4].EMPLACEMENT}
-                            </p>
+                            <p id="price">{offer.product_price} Euros</p>
+
+                            {offer.product_details.map((elem) => {
+                                const keys = Object.keys(elem);
+                                return (
+                                    <p>
+                                        {keys} : {elem[keys]}
+                                    </p>
+                                );
+                            })}
                         </div>
                     </div>
+                    <div>
+                        <p>{offer.product_name}</p>
+                        <p> {offer.product_description}</p>
+                        <p id="owner"> {offer.owner.account.username}</p>
+                    </div>
 
-                    <div>{offer.product_name}</div>
-                    <div> {offer.product_description}</div>
                     <button>Acheter</button>
                 </div>
             </div>

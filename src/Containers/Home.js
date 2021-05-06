@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../Components/Header";
 import axios from "axios";
+import backgroundImg from "../vinted_background.jpeg";
+import blankAvatar from "../assets/blank_avatar.svg";
 
 const Home = () => {
     const [data, setData] = useState([]);
@@ -13,10 +15,9 @@ const Home = () => {
                 "https://vintedreplica.herokuapp.com/offers"
             );
             setData(response.data);
+            setIsLoading(false);
         };
         fetchdata();
-
-        setIsLoading(false);
     }, []);
 
     return isLoading ? (
@@ -25,10 +26,8 @@ const Home = () => {
         <div>
             <Header />
             <div id="preSection" className="container">
-                <img
-                    src="https://www.journee-de-la-femme.com/wp-content/uploads/2018/11/vinted-application-pour-vendre-vos-vetements.jpg"
-                    alt="Fond_vinted"
-                />
+                <img src={backgroundImg} alt="backgroundImg" />
+
                 <div>
                     <h2>Prêts à faire du tri dans vos placards ?</h2>
                     <button>Commencez à vendre</button>
@@ -37,21 +36,24 @@ const Home = () => {
 
             <div id="offers" className="container">
                 {data.map((elem, index) => {
-                    console.log(elem._id);
+                    // console.log(elem._id);
                     return (
                         // <div >
-                        <Link to={`/offer/:${elem._id}`} key={index}>
-                            <div>
-                                <span>
-                                    Vendeur : {elem.owner.account.username}
-                                </span>
-                                <span></span>
+                        <Link to={`/offer/${elem._id}`} key={index}>
+                            <div className="user">
+                                <img
+                                    className="avatar"
+                                    src={blankAvatar}
+                                    alt="blankAvatar"
+                                />
+
+                                <p>{elem.owner.account.username}</p>
                             </div>
                             <img
                                 src={elem.product_image.secure_url}
                                 alt="Item_image"
                             />
-                            <div>{elem.product_name}</div>
+                            {/* <div>{elem.product_name}</div> */}
                         </Link>
                         // </div>
                     );

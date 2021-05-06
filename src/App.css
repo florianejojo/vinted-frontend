@@ -25,23 +25,50 @@
     height: 35px;
 }
 
-/* Pré-section */
+/* HOME :  */
 
+/* Pré-section */
 #preSection {
-    background-color: black;
+    position: relative;
+}
+
+#preSection h2 {
+    font-size: 30px;
+    font-family: "Roboto", sans-serif;
+}
+
+#preSection img {
+    width: 100%;
 }
 
 #preSection > div {
-    position: relative;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    width: 400px;
+    height: 250px;
     background-color: white;
+    padding: 20px;
+    /* background-color: white; */
 }
 
-/* carrousel */
+/* photos items */
+
+.avatar {
+    /* border-radius: 50%; */
+    /* width: 20px; */
+    height: 20px;
+}
+.user {
+    display: flex;
+    flex-direction: row;
+    background-color: lightgreen;
+}
 
 #offers {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 05px;
 }
 
 #offers > div {
@@ -50,7 +77,7 @@
 }
 
 #offers img {
-    width: 200px;
+    width: 100px;
 }
 
 /*  OFFER PAGE */
@@ -79,5 +106,13 @@
 #itemDescription {
     border-bottom: lightgray solid 1px;
     /* background-color: red; */
-    /* padding: 30px; */
+    padding-bottom: 50px;
+}
+
+#itemDescription #price {
+    margin-bottom: 20px;
+}
+
+#owner {
+    margin-top: 20px;
 }
