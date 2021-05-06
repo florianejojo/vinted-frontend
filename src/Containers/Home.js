@@ -8,17 +8,19 @@ import blankAvatar from "../assets/blank_avatar.svg";
 const Home = () => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [page, setPage] = useState(1);
+    const [limit, setLimit] = useState(2);
 
     useEffect(() => {
         const fetchdata = async () => {
             const response = await axios.get(
-                "https://vintedreplica.herokuapp.com/offers"
+                `https://vintedreplica.herokuapp.com/offers?page=${page}&limit=${limit}`
             );
             setData(response.data);
             setIsLoading(false);
         };
         fetchdata();
-    }, []);
+    }, [page, limit]);
 
     return isLoading ? (
         "is Loading"
@@ -32,6 +34,40 @@ const Home = () => {
                     <h2>Prêts à faire du tri dans vos placards ?</h2>
                     <button>Commencez à vendre</button>
                 </div>
+            </div>
+
+            <div className="container">
+                <button
+                    onClick={() => {
+                        if (page < 1) setPage(page - 1);
+                    }}
+                >
+                    Page précédente
+                </button>{" "}
+                <span>{page}</span>
+                <button
+                    onClick={() => {
+                        setPage(page + 1);
+                    }}
+                >
+                    page suivante
+                </button>
+                <button
+                    onClick={() => {
+                        setLimit(2);
+                        setPage(1);
+                    }}
+                >
+                    2 articles par page
+                </button>
+                <button
+                    onClick={() => {
+                        setLimit(10);
+                        setPage(1);
+                    }}
+                >
+                    10 articles par page
+                </button>
             </div>
 
             <div id="offers" className="container">
