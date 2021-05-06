@@ -18,7 +18,7 @@ const Signup = () => {
             // avatar: "",
         };
         console.log(userInfos);
-        const response = await axios.get(
+        const response = await axios.post(
             "https://vintedreplica.herokuapp.com/user/signup",
             { userInfos }
         );
