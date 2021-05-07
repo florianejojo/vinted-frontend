@@ -24,6 +24,8 @@ function App() {
 
     return (
         <Router>
+            {signupModal && <Signup setSignupModal={setSignupModal} />}
+
             <Header
                 userConnected={userConnected}
                 setToken={setToken}
@@ -34,15 +36,10 @@ function App() {
                 <Route path="/offer/:id">
                     <Offer />
                 </Route>
-                {/* <Route path="/Signup">
-                    <Signup />
-                </Route> */}
                 <Route path="/Login">
                     <Login setToken={setToken} />
                 </Route>
                 <Route path="/">
-                    {signupModal && <Signup setSignupModal={setSignupModal} />}
-
                     <Home />
                 </Route>
             </Switch>
