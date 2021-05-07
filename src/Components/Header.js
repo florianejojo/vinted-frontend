@@ -1,6 +1,6 @@
 // import { Link } from "react-router-dom";
 
-const Header = ({ userConnected, setToken, setSignupModal, setLoginModal }) => {
+const Header = ({ token, setCookie, setSignupModal, setLoginModal }) => {
     // const container = "container";
     return (
         <div className={`header container`}>
@@ -12,8 +12,10 @@ const Header = ({ userConnected, setToken, setSignupModal, setLoginModal }) => {
 
             <input type="text" placeholder="Recherche des articles" />
 
-            {userConnected ? (
-                <button onClick={() => setToken(null)}>Se déconnecter</button>
+            {token ? (
+                <button onClick={() => setCookie("Token", null)}>
+                    Se déconnecter
+                </button>
             ) : (
                 <span>
                     <button

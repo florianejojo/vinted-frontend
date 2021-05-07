@@ -1,8 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+// import { useHistory } from "react-router-dom";
 
-const Signup = ({ setSignupModal }) => {
+const Signup = ({ setSignupModal, setLoginModal }) => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -66,7 +67,14 @@ const Signup = ({ setSignupModal }) => {
 
                 <button type="submit">S'inscrire</button>
 
-                <button>Tu as déjà un compte, connecte-toi</button>
+                <button
+                    onClick={() => {
+                        setSignupModal(false);
+                        setLoginModal(true);
+                    }}
+                >
+                    Tu as déjà un compte, connecte-toi
+                </button>
             </form>
         </div>
     );

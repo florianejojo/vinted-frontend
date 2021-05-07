@@ -1,12 +1,16 @@
 import axios from "axios";
 import { useState } from "react";
 // import Cookies from "js-cookie";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
-const Login = ({ setToken, setLoginModal }) => {
+const Login = ({
+    emailFromCookies,
+    setCookie,
+    setLoginModal,
+    setSignupModal,
+}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const history = useHistory();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -19,9 +23,10 @@ const Login = ({ setToken, setLoginModal }) => {
             "https://vintedreplica.herokuapp.com/user/login",
             userInfos
         );
-
-        setToken(response.data.token);
-        history.push("/");
+        console.log(response.data);
+        setCookie("Token", response.data.token);
+        setCookie("Email", email);
+        setLoginModal(false);
     };
 
     return (
@@ -37,7 +42,8 @@ const Login = ({ setToken, setLoginModal }) => {
 
                 <input
                     type="text"
-                    placeholder="Adresse email"
+                    placeholder="email"
+                    value={emailFromCookies}
                     onChange={(event) => {
                         setEmail(event.target.value);
                     }}
@@ -51,7 +57,14 @@ const Login = ({ setToken, setLoginModal }) => {
                 />
 
                 <button type="submit">Se connecter</button>
-                <button>Pas encore de compte ? Inscris-toi!</button>
+                <button
+                    onClick={() => {
+                        setLoginModal(false);
+                        setSignupModal(true);
+                    }}
+                >
+                    Pas encore de compte ? Inscris-toi!
+                </button>
             </form>
         </div>
     );

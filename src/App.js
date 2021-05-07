@@ -9,28 +9,45 @@ import Login from "./Containers/Login";
 import { useState } from "react";
 
 function App() {
-    const [userConnected, setUserConnected] = useState(Cookies.get("Token"));
+    const [token, setToken] = useState(Cookies.get("Token"));
+    const [emailFromCookies, setEmailFromCookies] = useState(
+        Cookies.get("Email")
+    );
+
     const [signupModal, setSignupModal] = useState(false);
     const [loginModal, setLoginModal] = useState(false);
 
-    const setToken = (token) => {
-        if (token) {
-            Cookies.set("Token", token);
-            setUserConnected(token);
+    const setCookie = (cookieName, cookieValue) => {
+        if (cookieValue) {
+            Cookies.set(cookieName, cookieValue);
+            if (cookieName === "Token") setToken(cookieValue);
+            if (cookieName === "Email") setEmailFromCookies(cookieValue);
         } else {
             Cookies.remove("Token");
-            setUserConnected(null);
+            setToken(null);
         }
     };
 
     return (
         <Router>
-            {signupModal && <Signup setSignupModal={setSignupModal} />}
-            {loginModal && <Login setLoginModal={setLoginModal} />}
+            {signupModal && (
+                <Signup
+                    setSignupModal={setSignupModal}
+                    setLoginModal={setLoginModal}
+                />
+            )}
+            {loginModal && (
+                <Login
+                    setSignupModal={setSignupModal}
+                    setLoginModal={setLoginModal}
+                    setCookie={setCookie}
+                    emailFromCookies={emailFromCookies}
+                />
+            )}
 
             <Header
-                userConnected={userConnected}
-                setToken={setToken}
+                token={token}
+                setCookie={setCookie}
                 signupModal={signupModal}
                 setSignupModal={setSignupModal}
                 loginModal={loginModal}
@@ -40,9 +57,6 @@ function App() {
                 <Route path="/offer/:id">
                     <Offer />
                 </Route>
-                {/* <Route path="/Login">
-                    <Login setToken={setToken} />
-                </Route> */}
                 <Route path="/">
                     <Home />
                 </Route>
