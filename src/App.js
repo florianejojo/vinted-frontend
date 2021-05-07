@@ -11,6 +11,7 @@ import { useState } from "react";
 function App() {
     const [userConnected, setUserConnected] = useState(Cookies.get("Token"));
     const [signupModal, setSignupModal] = useState(false);
+    const [loginModal, setLoginModal] = useState(false);
 
     const setToken = (token) => {
         if (token) {
@@ -25,20 +26,23 @@ function App() {
     return (
         <Router>
             {signupModal && <Signup setSignupModal={setSignupModal} />}
+            {loginModal && <Login setLoginModal={setLoginModal} />}
 
             <Header
                 userConnected={userConnected}
                 setToken={setToken}
                 signupModal={signupModal}
                 setSignupModal={setSignupModal}
+                loginModal={loginModal}
+                setLoginModal={setLoginModal}
             />
             <Switch>
                 <Route path="/offer/:id">
                     <Offer />
                 </Route>
-                <Route path="/Login">
+                {/* <Route path="/Login">
                     <Login setToken={setToken} />
-                </Route>
+                </Route> */}
                 <Route path="/">
                     <Home />
                 </Route>

@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
-const Header = ({ userConnected, setToken, signupModal, setSignupModal }) => {
+const Header = ({ userConnected, setToken, setSignupModal, setLoginModal }) => {
     // const container = "container";
     return (
         <div className={`header container`}>
@@ -16,7 +16,6 @@ const Header = ({ userConnected, setToken, signupModal, setSignupModal }) => {
                 <button onClick={() => setToken(null)}>Se déconnecter</button>
             ) : (
                 <span>
-                    {/* <Link to="/Signup">S'inscrire</Link> */}
                     <button
                         onClick={() => {
                             setSignupModal(true);
@@ -24,7 +23,13 @@ const Header = ({ userConnected, setToken, signupModal, setSignupModal }) => {
                     >
                         S'inscrire
                     </button>
-                    <Link to="/Login">Se connecter</Link>
+                    <button
+                        onClick={() => {
+                            setLoginModal(true);
+                        }}
+                    >
+                        Se connecter
+                    </button>
                 </span>
             )}
 
