@@ -1,0 +1,147 @@
+/* Other rules */
+
+.container {
+    /* border: solid black 1px; */
+    /* background-color: hotpink; */
+    margin: 0 auto;
+    width: 1024px;
+}
+
+/* Header */
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 60px;
+    align-items: center;
+}
+
+.dark {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.header input {
+    width: 400px;
+}
+
+.logo {
+    height: 35px;
+}
+
+/* HOME :  */
+
+/* Pré-section */
+#preSection {
+    position: relative;
+}
+
+#preSection h2 {
+    font-size: 30px;
+    font-family: "Roboto", sans-serif;
+}
+
+#preSection img {
+    width: 100%;
+}
+
+#preSection > div {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    width: 400px;
+    height: 250px;
+    background-color: white;
+    padding: 20px;
+    /* background-color: white; */
+}
+
+/* photos items */
+
+.avatar {
+    /* border-radius: 50%; */
+    /* width: 20px; */
+    height: 20px;
+}
+.user {
+    display: flex;
+    flex-direction: row;
+    background-color: lightgreen;
+}
+
+#offers {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 05px;
+}
+
+#offers > div {
+    border: black 1px solid;
+    margin: 20px;
+}
+
+#offers img {
+    width: 150px;
+}
+
+/*  OFFER PAGE */
+
+#offer {
+    display: flex;
+    flex-direction: row;
+}
+
+#offer img {
+    background-color: burlywood;
+    width: calc(50% - 100px);
+    /* height: 400px; */
+
+    margin: 0 50px;
+    /* object-fit; */
+}
+
+#offer .right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 100px;
+}
+
+#itemDescription {
+    border-bottom: lightgray solid 1px;
+    /* background-color: red; */
+    padding-bottom: 50px;
+}
+
+#itemDescription #price {
+    margin-bottom: 20px;
+}
+
+#owner {
+    margin-top: 20px;
+}
+
+/* SIGNUP */
+
+.behindModal {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 5;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    align-items: center;
+    padding: 40px;
+    background-color: white;
+    z-index: 6;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

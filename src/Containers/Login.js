@@ -37,7 +37,7 @@ const Login = ({
                     setLoginModal(false);
                 }}
             ></div>
-            <form onSubmit={handleSubmit} className="signup container modal">
+            <form onSubmit={handleSubmit} className="container modal">
                 <h2>Se connecter</h2>
 
                 <input

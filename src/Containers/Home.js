@@ -9,7 +9,7 @@ const Home = () => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [page, setPage] = useState(1);
-    const [limit, setLimit] = useState(2);
+    const [limit, setLimit] = useState(100);
 
     useEffect(() => {
         const fetchdata = async () => {
@@ -26,12 +26,12 @@ const Home = () => {
         "is Loading"
     ) : (
         <div>
-            <div id="preSection" className="container">
+            <div id="preSection">
                 <img src={backgroundImg} alt="backgroundImg" />
 
-                <div>
+                <div className="insert">
                     <h2>Prêts à faire du tri dans vos placards ?</h2>
-                    <button>Commencez à vendre</button>
+                    <button>Commencer à vendre</button>
                 </div>
             </div>
 
@@ -71,9 +71,7 @@ const Home = () => {
 
             <div id="offers" className="container">
                 {data.map((elem, index) => {
-                    // console.log(elem._id);
                     return (
-                        // <div >
                         <Link to={`/offer/${elem._id}`} key={index}>
                             <div className="user">
                                 <img
@@ -81,20 +79,22 @@ const Home = () => {
                                     src={blankAvatar}
                                     alt="blankAvatar"
                                 />
-
-                                <p>{elem.owner.account.username}</p>
+                                <p className="userName">
+                                    {elem.owner.account.username}
+                                </p>
                             </div>
                             <img
+                                id="itemImg"
                                 src={elem.product_image.secure_url}
                                 alt="Item_image"
                             />
-                            {/* <div>{elem.product_name}</div> */}
+                            <p>{elem.product_price} Euros</p>
+                            <p>Taille</p>
+                            <p>Marque</p>
                         </Link>
-                        // </div>
                     );
                 })}
             </div>
-            {/* <Link to="/offer"> Go to Offer</Link> */}
         </div>
     );
 };

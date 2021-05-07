@@ -1,41 +1,41 @@
-// import { Link } from "react-router-dom";
-
 const Header = ({ token, setCookie, setSignupModal, setLoginModal }) => {
-    // const container = "container";
     return (
-        <div className={`header container`}>
-            <img
-                className="logo"
-                src="https://upload.wikimedia.org/wikipedia/commons/2/29/Vinted_logo.png"
-                alt="logo_vinted"
-            />
+        <div>
+            <div className={`header container`}>
+                <img
+                    className="logo"
+                    src="https://upload.wikimedia.org/wikipedia/commons/2/29/Vinted_logo.png"
+                    alt="logo_vinted"
+                />
 
-            <input type="text" placeholder="Recherche des articles" />
+                <input type="text" placeholder="Rechercher des articles" />
 
-            {token ? (
-                <button onClick={() => setCookie("Token", null)}>
-                    Se déconnecter
-                </button>
-            ) : (
-                <span>
-                    <button
-                        onClick={() => {
-                            setSignupModal(true);
-                        }}
-                    >
-                        S'inscrire
+                {token ? (
+                    <button onClick={() => setCookie("Token", null)}>
+                        Se déconnecter
                     </button>
-                    <button
-                        onClick={() => {
-                            setLoginModal(true);
-                        }}
-                    >
-                        Se connecter
-                    </button>
-                </span>
-            )}
+                ) : (
+                    <span>
+                        <button
+                            onClick={() => {
+                                setSignupModal(true);
+                            }}
+                        >
+                            S'inscrire
+                        </button>
+                        <button
+                            onClick={() => {
+                                setLoginModal(true);
+                            }}
+                        >
+                            Se connecter
+                        </button>
+                    </span>
+                )}
 
-            <button>Vends tes articles</button>
+                <button className="sell">Vends tes articles</button>
+            </div>
+            <p className="line"></p>
         </div>
     );
 };
