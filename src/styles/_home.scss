@@ -37,7 +37,7 @@
     margin-top: 30px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 05px;
+    grid-gap: 30px 5px;
 
     .user {
         width: 230px;
@@ -58,9 +58,22 @@
             text-decoration: none;
         }
     }
+    .description {
+        margin-top: 10px;
+        font-family: $font-family;
+        color: grey;
+        font-size: 12px;
+        .price {
+            color: black;
+            font-size: 15px;
+        }
+        p {
+            margin: 5px;
+        }
+    }
     #itemImg {
         width: 230px;
-        height: 360px;
+        height: 320px;
         object-fit: cover;
     }
 }

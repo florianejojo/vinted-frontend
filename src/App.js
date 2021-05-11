@@ -64,13 +64,13 @@ function App() {
                 />
                 <Switch>
                     <Route path="/offer/:id">
-                        <Offer />
+                        <Offer token={token} setLoginModal={setLoginModal} />
                     </Route>
                     <Route path="/publish">
                         <Publish token={token} />
                     </Route>
                     <Route path="/payment">
-                        <Payment token={token} />
+                        <Payment token={token} setLoginModal={setLoginModal} />
                     </Route>
                     <Route path="/">
                         <Home />

@@ -2,7 +2,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const Offer = () => {
+const Offer = ({ token, setLoginModal }) => {
     const { id } = useParams();
     const [offer, setOffer] = useState();
     const [isLoading, setIsLoading] = useState(true);
@@ -20,7 +20,10 @@ const Offer = () => {
     }, [id]);
 
     const managePayment = () => {
-        history.push("/payment", { itemId: id });
+        if (token) history.push("/payment", { itemId: id });
+        else {
+            setLoginModal(true);
+        }
     };
 
     return isLoading ? (
