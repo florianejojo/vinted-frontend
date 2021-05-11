@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import axios from "axios";
 import backgroundImg from "../vinted_background.jpeg";
@@ -7,12 +7,13 @@ import blankAvatar from "../assets/blank_avatar.svg";
 
 import Pages from "../Components/Pages";
 
-const Home = () => {
+const Home = ({ token, setLoginModal }) => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [page, setPage] = useState(1);
     const [limit, setLimit] = useState(100);
-    // const [nbItems, setNbItems] = useState(0);
+    const history = useHistory();
+    // const [maxPage, setMaxPage] = useState(0);
 
     useEffect(() => {
         const fetchdata = async () => {
@@ -20,12 +21,20 @@ const Home = () => {
                 `https://vintedreplica.herokuapp.com/offers?page=${page}&limit=${limit}`
             );
             setData(response.data);
-            // setNbItems(data.length);
+            // setMaxPage(data.length - Number(page) * Number(limit));
 
             setIsLoading(false);
         };
         fetchdata();
-    }, [page, limit]);
+    }, [page, limit, data]);
+
+    const startSelling = () => {
+        if (token) {
+            history.push("/publish");
+        } else {
+            setLoginModal(true);
+        }
+    };
 
     return isLoading ? (
         "is Loading"
@@ -36,9 +45,7 @@ const Home = () => {
 
                 <div className="insert">
                     <h2>Prêts à faire du tri dans vos placards ?</h2>
-                    <Link to="/publish">
-                        <button>Commencer à vendre</button>
-                    </Link>
+                    <button onClick={startSelling}>Commencer à vendre</button>
                 </div>
             </div>
             <Pages
@@ -46,7 +53,7 @@ const Home = () => {
                 setPage={setPage}
                 limit={limit}
                 setLimit={setLimit}
-                // nbItems={nbItems}
+                // maxPage={maxPage}
             />
             <div id="offers" className="container">
                 {data.map((elem, index) => {
@@ -72,10 +79,7 @@ const Home = () => {
                             <div className="description">
                                 <p className="price"> {elem.product_price} €</p>
                                 <p> {elem.product_details[1].TAILLE}</p>
-                                <p>
-                                    {" "}
-                                    Marque : {elem.product_details[0].MARQUE}
-                                </p>
+                                <p>Marque : {elem.product_details[0].MARQUE}</p>
                             </div>
                         </div>
                     );

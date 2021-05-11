@@ -73,7 +73,7 @@ function App() {
                         <Payment token={token} setLoginModal={setLoginModal} />
                     </Route>
                     <Route path="/">
-                        <Home />
+                        <Home token={token} setLoginModal={setLoginModal} />
                     </Route>
                 </Switch>
             </Router>

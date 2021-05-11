@@ -1,6 +1,4 @@
-// import { useState } from "react";
-
-const Pages = ({ page, setPage, limit, setLimit, nbItems }) => {
+const Pages = ({ page, setPage, setLimit }) => {
     // cacher le bouton + quand nombre de page actuelle * limit
 
     // const [nbMaxPage, setNbMaxPage] = useState(Math.ceil(nbItems / limit));
@@ -12,12 +10,12 @@ const Pages = ({ page, setPage, limit, setLimit, nbItems }) => {
             <div>
                 <button
                     onClick={() => {
-                        if (page < 1) setPage(page - 1);
+                        if (page > 1) setPage(page - 1);
                     }}
                 >
                     -
                 </button>
-                {/* <span>Page {page}</span> */}
+
                 <span>Page {page}</span>
 
                 <button

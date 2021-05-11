@@ -1,7 +1,5 @@
 import axios from "axios";
 import { useState } from "react";
-// import Cookies from "js-cookie";
-// import { useHistory } from "react-router-dom";
 
 const Login = ({
     emailFromCookies,
@@ -14,6 +12,7 @@ const Login = ({
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
         const userInfos = {
             email,
             password,
@@ -23,7 +22,7 @@ const Login = ({
             "https://vintedreplica.herokuapp.com/user/login",
             userInfos
         );
-        console.log(response.data);
+        console.log("ok");
         setCookie("Token", response.data.token);
         setCookie("Email", email);
         setLoginModal(false);

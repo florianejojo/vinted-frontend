@@ -13,7 +13,6 @@ const Publish = ({ token }) => {
     const [size, setSize] = useState("");
     const [color, setColor] = useState("");
     const [picture, setPicture] = useState();
-    // const [error, setError] = useState("");
 
     const handleSubmit = async (event) => {
         try {
@@ -54,11 +53,6 @@ const Publish = ({ token }) => {
                         },
                     }
                 );
-                // if (error) {
-                //     console.log(error);
-                //     alert(error);
-                // }
-
                 history.push(`/offer/${response.data._id}`);
             }
         } catch (error) {
@@ -68,9 +62,6 @@ const Publish = ({ token }) => {
 
     return (
         <div>
-            {/* {error ? (
-                (setError(""), alert(error))
-            ) : ( */}
             <form onSubmit={handleSubmit} className="publish">
                 <h2>Vends un article</h2>
                 <input
@@ -141,7 +132,6 @@ const Publish = ({ token }) => {
                 />
                 <button type="submit">Ajouter</button>
             </form>
-            {/* )} */}
         </div>
     );
 };

@@ -43,7 +43,7 @@ const Header = ({ token, setCookie, setSignupModal, setLoginModal }) => {
                 <button
                     className="sell"
                     onClick={() => {
-                        token && history.push("/publish");
+                        token ? history.push("/publish") : setLoginModal(true);
                     }}
                 >
                     Vends tes articles
