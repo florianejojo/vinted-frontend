@@ -1,0 +1,25 @@
+#offer {
+    display: flex;
+    flex-direction: row;
+    img {
+        background-color: burlywood;
+        width: calc(50% - 100px);
+        margin: 0 50px;
+    }
+    .right-side {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-left: 100px;
+    }
+    #itemDescription {
+        border-bottom: lightgray solid 1px;
+        padding-bottom: 50px;
+        #price {
+            margin-bottom: 20px;
+        }
+        #owner {
+            margin-top: 20px;
+        }
+    }
+}

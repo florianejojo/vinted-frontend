@@ -1,0 +1,43 @@
+//
+// VARIABLES
+// ///////////////
+
+$containerWidth: 1254px;
+$font-family: "Roboto", sans-serif;
+$blue-color: #0eaeb7;
+$grey-color: #f5f6f7;
+
+//
+// MIXIN
+// ///////////////
+
+@mixin button {
+    background-color: $blue-color;
+    color: white;
+    height: 44px;
+    border: 1px $blue-color solid;
+    border-radius: 5px;
+    font-size: 12px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+// @mixin flexCenter {
+//     display: flex;
+//     align-items: center;
+// }
+
+//
+// GENERAL
+// ///////////////
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    /* border: solid black 1px; */
+    /* background-color: hotpink; */
+    margin: 0 auto;
+    width: $containerWidth;
+}

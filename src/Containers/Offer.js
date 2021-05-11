@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -47,12 +47,9 @@ const Offer = () => {
                         <p> {offer.product_description}</p>
                         <p id="owner"> {offer.owner.account.username}</p>
                     </div>
-
                     <button>Acheter</button>
                 </div>
             </div>
-            <Link to="/"> Go to Home</Link>
-            <Link to="/Signup">S'inscrire</Link>
         </div>
     );
 };

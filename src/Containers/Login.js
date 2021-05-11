@@ -42,10 +42,11 @@ const Login = ({
 
                 <input
                     type="text"
-                    placeholder="email"
-                    value={emailFromCookies}
+                    placeholder="Adresse email"
+                    // value={emailFromCookies}
                     onChange={(event) => {
                         setEmail(event.target.value);
+                        console.log(email);
                     }}
                 />
                 <input
@@ -57,14 +58,15 @@ const Login = ({
                 />
 
                 <button type="submit">Se connecter</button>
-                <button
+                <p
+                    className="link"
                     onClick={() => {
                         setLoginModal(false);
                         setSignupModal(true);
                     }}
                 >
                     Pas encore de compte ? Inscris-toi!
-                </button>
+                </p>
             </form>
         </div>
     );

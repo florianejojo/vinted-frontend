@@ -5,11 +5,14 @@ import axios from "axios";
 import backgroundImg from "../vinted_background.jpeg";
 import blankAvatar from "../assets/blank_avatar.svg";
 
+import Pages from "../Components/Pages";
+
 const Home = () => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [page, setPage] = useState(1);
     const [limit, setLimit] = useState(100);
+    // const [nbItems, setNbItems] = useState(0);
 
     useEffect(() => {
         const fetchdata = async () => {
@@ -17,6 +20,8 @@ const Home = () => {
                 `https://vintedreplica.herokuapp.com/offers?page=${page}&limit=${limit}`
             );
             setData(response.data);
+            // setNbItems(data.length);
+
             setIsLoading(false);
         };
         fetchdata();
@@ -34,41 +39,13 @@ const Home = () => {
                     <button>Commencer à vendre</button>
                 </div>
             </div>
-
-            <div className="container">
-                <button
-                    onClick={() => {
-                        if (page < 1) setPage(page - 1);
-                    }}
-                >
-                    Page précédente
-                </button>{" "}
-                <span>{page}</span>
-                <button
-                    onClick={() => {
-                        setPage(page + 1);
-                    }}
-                >
-                    page suivante
-                </button>
-                <button
-                    onClick={() => {
-                        setLimit(2);
-                        setPage(1);
-                    }}
-                >
-                    2 articles par page
-                </button>
-                <button
-                    onClick={() => {
-                        setLimit(10);
-                        setPage(1);
-                    }}
-                >
-                    10 articles par page
-                </button>
-            </div>
-
+            <Pages
+                page={page}
+                setPage={setPage}
+                limit={limit}
+                setLimit={setLimit}
+                // nbItems={nbItems}
+            />
             <div id="offers" className="container">
                 {data.map((elem, index) => {
                     return (

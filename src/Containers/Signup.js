@@ -60,21 +60,22 @@ const Signup = ({ setSignupModal, setLoginModal }) => {
                         setPassword(event.target.value);
                     }}
                 />
-                <div>
+                <div className="checkBox">
                     <input type="checkbox" />
                     <p>S'inscrire à notre Newsletter</p>
                 </div>
 
                 <button type="submit">S'inscrire</button>
 
-                <button
+                <p
+                    className="link"
                     onClick={() => {
                         setSignupModal(false);
                         setLoginModal(true);
                     }}
                 >
                     Tu as déjà un compte, connecte-toi
-                </button>
+                </p>
             </form>
         </div>
     );

@@ -1,11 +1,13 @@
-import "./App.scss";
+// import "./styles/App.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import Home from "./Containers/Home";
 import Offer from "./Containers/Offer";
 import Cookies from "js-cookie";
 import Header from "./Components/Header";
 import Signup from "./Containers/Signup";
 import Login from "./Containers/Login";
+import Publish from "./Containers/Publish";
 import { useState } from "react";
 
 function App() {
@@ -56,6 +58,9 @@ function App() {
             <Switch>
                 <Route path="/offer/:id">
                     <Offer />
+                </Route>
+                <Route path="/publish">
+                    <Publish token={token} />
                 </Route>
                 <Route path="/">
                     <Home />
