@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
@@ -15,12 +14,8 @@ const Publish = ({ token }) => {
     const [color, setColor] = useState("");
     const [picture, setPicture] = useState();
     const [error, setError] = useState("");
-    // const [data, setData] = useState();
-    // const [isLoading, setIsLoading] = useState(true);
 
     const handleSubmit = async (event) => {
-        //
-
         try {
             event.preventDefault();
             if (isNaN(price)) {
@@ -40,7 +35,7 @@ const Publish = ({ token }) => {
                 formData.append("picture", picture);
                 console.log(formData);
                 const response = await axios.post(
-                    "https://vintedreplica.herokuapp.com/publish",
+                    "https://vintedreplica.herokuapp.com/offer/publish",
                     formData,
                     {
                         headers: {
@@ -55,7 +50,6 @@ const Publish = ({ token }) => {
             console.log(error.message);
         }
     };
-    // console.log(data);
 
     return (
         <div>

@@ -1,0 +1,27 @@
+.payment {
+    background-color: lightgreen;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+
+    .cardElement {
+        border: solid grey 3px;
+        height: 30px;
+        font-size: 16px;
+        color: #424770;
+        &::placeholder {
+            color: "#aab7c4";
+        }
+        &:invalid {
+            color: "#9e2146";
+        }
+    }
+    button {
+        @include button();
+        margin-top: 20px;
+    }
+}

@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -6,6 +6,7 @@ const Offer = () => {
     const { id } = useParams();
     const [offer, setOffer] = useState();
     const [isLoading, setIsLoading] = useState(true);
+    const history = useHistory();
 
     useEffect(() => {
         const fetchdata = async () => {
@@ -17,6 +18,10 @@ const Offer = () => {
         };
         fetchdata();
     }, [id]);
+
+    const managePayment = () => {
+        history.push("/payment", { itemId: id });
+    };
 
     return isLoading ? (
         "Is Loading"
@@ -32,10 +37,10 @@ const Offer = () => {
                         <div id="itemDescription">
                             <p id="price">{offer.product_price} Euros</p>
 
-                            {offer.product_details.map((elem) => {
+                            {offer.product_details.map((elem, index) => {
                                 const keys = Object.keys(elem);
                                 return (
-                                    <p>
+                                    <p key={index}>
                                         {keys} : {elem[keys]}
                                     </p>
                                 );
@@ -47,7 +52,9 @@ const Offer = () => {
                         <p> {offer.product_description}</p>
                         <p id="owner"> {offer.owner.account.username}</p>
                     </div>
-                    <button>Acheter</button>
+                    {/* <Link to="/payment" offer={offer}> */}
+                    <button onClick={managePayment}>Acheter</button>
+                    {/* </Link> */}
                 </div>
             </div>
         </div>

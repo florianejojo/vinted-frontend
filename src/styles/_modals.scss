@@ -49,18 +49,6 @@
     }
     button {
         @include button();
-        // min-height: 40px;
-        // width: 100%;
-        // border: 1px $blue-color solid;
-        // background-color: white;
-        // color: $blue-color;
-        // border-radius: 5px;
-        // font-size: 12px;
-        // background-color: $blue-color;
-        // color: white;
-        // &:hover {
-        //     cursor: pointer;
-        // }
     }
     .link {
         color: $blue-color;

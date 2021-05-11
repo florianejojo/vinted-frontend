@@ -36,7 +36,9 @@ const Home = () => {
 
                 <div className="insert">
                     <h2>Prêts à faire du tri dans vos placards ?</h2>
-                    <button>Commencer à vendre</button>
+                    <Link to="/publish">
+                        <button>Commencer à vendre</button>
+                    </Link>
                 </div>
             </div>
             <Pages

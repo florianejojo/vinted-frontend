@@ -452,4 +452,71 @@ table {
 #offer #itemDescription #owner {
   margin-top: 20px;
 }
+
+.publish > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 40px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.publish > div h2 {
+  font-size: 24px;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 40px;
+}
+
+.publish > div > input,
+.publish > div textarea {
+  border: none;
+  border: solid lightgray 1px;
+  width: 100%;
+  height: 30px;
+  font-family: "Roboto", sans-serif;
+  border-radius: 5px;
+  margin-top: 05px;
+  padding: 05px;
+}
+
+.publish > div textarea {
+  height: 70px;
+}
+
+.publish > div p {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  margin-top: 10px;
+  color: grey;
+}
+
+.publish > div #fileInput {
+  border: none;
+}
+
+.publish > div button {
+  background-color: #0eaeb7;
+  color: white;
+  height: 44px;
+  border: 1px #0eaeb7 solid;
+  border-radius: 5px;
+  font-size: 12px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.publish > div button:hover {
+  cursor: pointer;
+}
 /*# sourceMappingURL=index.css.map */
