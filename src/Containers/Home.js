@@ -11,7 +11,7 @@ const Home = ({ token, setLoginModal }) => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [page, setPage] = useState(1);
-    const [limit, setLimit] = useState(100);
+    const [limit, setLimit] = useState(10000);
     const history = useHistory();
     // const [maxPage, setMaxPage] = useState(0);
 
@@ -26,7 +26,7 @@ const Home = ({ token, setLoginModal }) => {
             setIsLoading(false);
         };
         fetchdata();
-    }, [page, limit, data]);
+    }, [page, limit]);
 
     const startSelling = () => {
         if (token) {
@@ -55,6 +55,7 @@ const Home = ({ token, setLoginModal }) => {
                 setLimit={setLimit}
                 // maxPage={maxPage}
             />
+
             <div id="offers" className="container">
                 {data.map((elem, index) => {
                     return (

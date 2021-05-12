@@ -52,7 +52,7 @@ const Payment = ({ token, setLoginModal }) => {
     return (
         <div>
             {completed ? (
-                <p>
+                <p className="payment container">
                     Merci pour votre achat, le vendeur a été prévenu et
                     procèdera à l'envoi du colis dans un délais de 7 jours.
                 </p>

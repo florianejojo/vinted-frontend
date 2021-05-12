@@ -1,5 +1,5 @@
 .payment {
-    background-color: lightgreen;
+    // background-color: lightgreen;
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -7,14 +7,22 @@
     left: 50%;
     transform: translate(-50%, -50%);
     position: fixed;
-
+    font-family: $font-family;
+    border: solid $blue-color 1px;
+    padding: 30px;
+    border-radius: 10px;
     .cardElement {
-        border: solid grey 3px;
+        border: solid grey 1px;
+        // border-radius: 10px;
+
         height: 30px;
         font-size: 16px;
         color: #424770;
+        padding: 10px;
         &::placeholder {
-            color: "#aab7c4";
+            color: #aab7c4;
+            // justify-content: center;
+            padding: 10px;
         }
         &:invalid {
             color: "#9e2146";
